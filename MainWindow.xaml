@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="SerialPortRead.MainWindow" Title="BlackBox Flash" Height="500" Width="763" Icon="/SerialPortRead;component/Images/Delco_Electronics_logo.gif" ResizeMode="CanMinimize" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:MainWindow="clr-namespace:SerialPortRead" Closing="Window_Closing">
+  <Window.Resources>
+    <MainWindow:MainWindow x:Key="orderData" />
+  </Window.Resources>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="270*" />
+      <RowDefinition Height="200*" />
+    </Grid.RowDefinitions>
+    <DockPanel Name="dockPanel1" ZIndex="1" Height="Auto" HorizontalAlignment="Left" VerticalAlignment="Top" Width="Auto" />
+    <ComboBox Name="ComPorts" Panel.ZIndex="1" Height="23" HorizontalAlignment="Left" Margin="35,65,0,0" VerticalAlignment="Top" Width="120" AllowDrop="True" DataContext="{Binding}" />
+    <Label Name="label1" Panel.ZIndex="1" Content="Select Serial Port:" Height="28" HorizontalAlignment="Left" Margin="35,39,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" />
+    <Label Name="label2" Panel.ZIndex="1" Content="Using Port:" Height="28" HorizontalAlignment="Left" Margin="173,39,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" />
+    <TextBox Name="Portinuse" Panel.ZIndex="1" Height="23" HorizontalAlignment="Left" Margin="173,65,0,0" VerticalAlignment="Top" Width="100" IsReadOnly="True" IsEnabled="True" />
+    <Button Name="Connect" Panel.ZIndex="1" Content="Connect" Height="23" HorizontalAlignment="Left" Margin="35,133,0,0" VerticalAlignment="Top" Width="75" Click="Connect_Click" />
+    <TextBox Name="Serialout" Panel.ZIndex="1" Height="217" HorizontalAlignment="Left" Margin="381,48,0,0" VerticalAlignment="Top" Width="335" AcceptsReturn="False" TextWrapping="Wrap" MaxLength="1000000" CharacterCasing="Upper" VerticalScrollBarVisibility="Auto" IsReadOnly="True" BorderBrush="#FF000000" AcceptsTab="False" />
+    <Button Name="Disconnect" Panel.ZIndex="1" Content="Disconnect" Height="23" HorizontalAlignment="Left" Margin="122,133,0,0" VerticalAlignment="Top" Width="75" Click="Disconnect_Click" />
+    <Label Name="label4" Panel.ZIndex="1" Content="Console:" Height="28" HorizontalAlignment="Left" Margin="381,22,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" />
+    <TextBox Name="Commandstring" Panel.ZIndex="1" Height="23" HorizontalAlignment="Right" Margin="0,98,217,0" VerticalAlignment="Top" Width="297" Grid.Row="1" />
+    <Label Name="SendCommandLabel" Panel.ZIndex="1" Content="Send Command String (Advanced):" Height="28" HorizontalAlignment="Right" Margin="0,64,306,0" VerticalAlignment="Top" Opacity="1" Grid.Row="1" FontWeight="Bold" Foreground="#FFF8F8FF" Background="#FF000000" FontStyle="Italic" />
+    <Button Name="SendCommand" Panel.ZIndex="1" Content="Send Command" Height="23" HorizontalAlignment="Right" Margin="0,136,413,0" VerticalAlignment="Top" Width="101" Grid.Row="1" FontStyle="Italic" Click="SendCommand_Click" />
+    <Button Name="ClearConsole" Panel.ZIndex="1" Content="Clear Window" Height="20" HorizontalAlignment="Left" Margin="633,0,0,0" VerticalAlignment="Top" Width="83" FontSize="11" Grid.Row="1" Click="ClearConsole_Click" />
+    <Label Name="AVTAdvanceLabel" Panel.ZIndex="1" Content="AVT Config (Advanced):" Height="28" HorizontalAlignment="Left" Margin="35,64,0,0" VerticalAlignment="Top" Opacity="1" Grid.Row="1" FontWeight="Bold" Foreground="#FFF8F8FF" Background="#FF000000" FontStyle="Italic" />
+    <TextBox Name="Configstring" Panel.ZIndex="1" Height="23" HorizontalAlignment="Left" Margin="35,98,0,0" VerticalAlignment="Top" Width="130" IsEnabled="True" Grid.Row="1" />
+    <Button Name="SetAVT" Panel.ZIndex="1" Content="Send AVT Config" Height="23" HorizontalAlignment="Left" Margin="35,136,0,0" VerticalAlignment="Top" Width="130" IsEnabled="True" Grid.Row="1" FontStyle="Italic" Click="SetAVT_Click" />
+    <Button Name="UserProgStart" Panel.ZIndex="1" Content="Start Flash Mode" Height="23" HorizontalAlignment="Right" Margin="0,133,433,0" VerticalAlignment="Top" Width="97" Click="UserProgStart_Click" />
+    <Button Name="EnableAdvance" Panel.ZIndex="1" Content="AC" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="0,173,0,0" VerticalAlignment="Top" Width="23" Opacity="0" Click="EnableAdvance_Click" />
+    <Button Name="ResumeFlash" Panel.ZIndex="1" Content="Resume Flash Mode (Advanced)" Height="23" HorizontalAlignment="Left" Margin="35,164,0,0" VerticalAlignment="Top" Width="273" FontStyle="Italic" Click="ResumeFlash_Click" />
+    <Button Name="Escape" Panel.ZIndex="1" Content="Escape (Advanced)" Grid.Row="1" Height="23" HorizontalAlignment="Left" Margin="548,98,0,0" VerticalAlignment="Top" Width="113" FontStyle="Italic" Click="Escape_Click" />
+    <CheckBox Name="AutoScroll" Panel.ZIndex="1" Content="Enable Autoscroll" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="381,4,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" IsChecked="True" />
+    <DockPanel Name="dockPanel2" ZIndex="1" Height="23" HorizontalAlignment="Stretch" VerticalAlignment="Top" Width="Auto">
+      <Menu Name="menu1" Height="23" Width="Auto" DockPanel.Dock="Top">
+        <MenuItem Header="_File">
+          <MenuItem Name="SavefromFlash" Header="_Save Bin From Flash" Click="SavefromFlash_Click" />
+          <MenuItem Name="OpenFlashBin" Header="_Open Bin and Flash" Click="OpenFlashBin_Click" />
+          <MenuItem Name="ResetPCM" Header="_Exit flash mode" Click="ResetPCM_Click" />
+          <MenuItem Name="Exit" Header="_Exit" Click="Exit_Click" />
+        </MenuItem>
+        <MenuItem Name="Help" Header="_Help" Click="Help_Click" />
+        <MenuItem Name="About" Header="_About" Click="About_Click" />
+      </Menu>
+    </DockPanel>
+    <ProgressBar Name="FlashProgressBar" Panel.ZIndex="1" Height="20" HorizontalAlignment="Left" Margin="35,242,0,0" VerticalAlignment="Top" Width="281" Foreground="#FF0000CD" />
+    <Label Name="label6" Panel.ZIndex="1" Content="Read/Write Progress:" Height="30" HorizontalAlignment="Left" Margin="35,213,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" />
+    <Label Name="label3" Panel.ZIndex="1" Content="Datalink Options:" Height="28" HorizontalAlignment="Left" Margin="35,104,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" />
+    <CheckBox Name="FlashOS" Panel.ZIndex="1" Content="Flash OS (Advanced)" Grid.Row="1" Height="16" HorizontalAlignment="Left" Margin="35,168,0,0" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFF8F8FF" Background="#FFF4F4F4" FontStyle="Italic" />
+    <Image Name="image1" Panel.ZIndex="0" Grid.RowSpan="2" Height="461" HorizontalAlignment="Stretch" Stretch="Fill" VerticalAlignment="Stretch" Width="741" Source="/SerialPortRead;component/Images/circuit-board-background.jpg" OpacityMask="#FF000000" />
+  </Grid>
+</Window>

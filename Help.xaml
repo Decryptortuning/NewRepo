@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Window x:Class="SerialPortRead.Help" Title="Help" Height="500" Width="600          " Icon="/SerialPortRead;component/DelcoLogo.ico" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Grid>
+    <Image Name="image1" Panel.ZIndex="0" Height="Auto" HorizontalAlignment="Left" Stretch="Fill" VerticalAlignment="Top" Width="Auto" Source="/SerialPortRead;component/Images/circuit-board-background.jpg" OpacityMask="#86000000" />
+    <Label Name="label1" Panel.ZIndex="1" Content="Quick Start Guide:" Height="28" HorizontalAlignment="Left" VerticalAlignment="Top" Width="566" Foreground="#FF000000" FontWeight="Bold" FontSize="14" />
+    <Label Name="label2" Panel.ZIndex="1" Content="2: Select serial port of AVT from &quot;Serial Port&quot; drop down, click refresh to update ports" Height="28" HorizontalAlignment="Left" Margin="0,68,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Label Name="label3" Panel.ZIndex="1" Content="3: Click &quot;Connect&quot; to start AVT and connect to PCM" Height="28" HorizontalAlignment="Left" Margin="0,102,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Label Name="label4" Panel.ZIndex="1" Content="1: Verify vehicle battery voltage greater than 12V, reflash will fail for low voltage" Height="28" HorizontalAlignment="Left" Margin="0,34,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Label Name="label5" Panel.ZIndex="1" Content="4: Wait 30 seconds after key-on, and click &quot;Start Flash Mode&quot;" Height="28" HorizontalAlignment="Left" Margin="0,136,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Label Name="label6" Panel.ZIndex="1" Content="5: Verify that PCM is in flash mode by checking console message indicating flash mode active" Height="28" HorizontalAlignment="Left" Margin="0,170,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Label Name="label7" Panel.ZIndex="1" Content="6: Get existing BIN by clicking &quot;File&quot; -&gt; &quot;Save BIN from Flash&quot;, follow prompts for saving BIN" Height="28" HorizontalAlignment="Left" Margin="0,204,0,0" VerticalAlignment="Top" Width="566" FontWeight="Bold" />
+    <Button Name="Help_OK" Panel.ZIndex="1" Content="OK" Height="23" HorizontalAlignment="Left" Margin="248,0,0,12" VerticalAlignment="Bottom" Width="75" Click="Help_OK_Click" />
+    <Label Name="label8" Panel.ZIndex="1" Content="7: To flash a new BIN, click &quot;File&quot; -&gt; &quot;Open BIN and Flash&quot;, follow prompts for opening BIN" Height="28" HorizontalAlignment="Left" Margin="0,238,0,0" VerticalAlignment="Top" FontWeight="Bold" />
+    <Label Name="label9" Panel.ZIndex="1" Content="8: After reflash, click &quot;File&quot; -&gt; &quot;Exit Flash Mode&quot;, PCM will reset and verify flash and show" Height="28" HorizontalAlignment="Left" Margin="0,272,0,0" VerticalAlignment="Top" FontWeight="Bold" />
+    <Label Name="label10" Panel.ZIndex="1" Content="&quot;PCM Reset&quot; if flash was successful" Height="28" HorizontalAlignment="Left" Margin="12,294,0,0" VerticalAlignment="Top" FontWeight="Bold" />
+    <Label Name="label11" Panel.ZIndex="1" Content="9: To Exit program, disconnect from PCM and close window" Height="28" HorizontalAlignment="Left" Margin="0,328,0,0" VerticalAlignment="Top" FontWeight="Bold" />
+  </Grid>
+</Window>
